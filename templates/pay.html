@@ -1,0 +1,19 @@
+{% extends 'index.html' %}
+{% block title %}
+	<H1>Pay</H1>
+{% endblock %}
+
+{% block content %}
+	<h1>
+    Pay With Mpesa Express
+    </h1>
+    {% for message in messages %}
+    	<P>{{ message }}</P>
+    {% endfor %}
+    <form action="{% url 'pay' %}" method="post">
+    {% csrf_token %}
+        <input name="phone" type="text" placeholder="Phone Number"><br><br>
+       <input name="amount" type="number" placeholder="Amount"><br><br>
+        <a href="pay/"><input type="submit" value="pay"></a>
+    </form>
+{% endblock %}
